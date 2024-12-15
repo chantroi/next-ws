@@ -45,7 +45,7 @@ function AblyPubSub() {
           onChange={(e) => setEvent(e.target.value)}
         />
         <textarea
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Message"
           value={text}
           onChange={(e) => setText(e.target.value)}
