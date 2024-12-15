@@ -1,28 +1,7 @@
 import React, { useState } from "react";
-import * as Ably from "ably";
-import {
-  AblyProvider,
-  ChannelProvider,
-  useChannel,
-  useConnectionStateListener,
-} from "ably/react";
-
-// Connect to Ably using the AblyProvider component and your API key
-const client = new Ably.Realtime({
-  key: "8f9kBA.iI7zkg:L4Gn8C5N0HmFLmYNuDW0_O9QOy2mmQK5uY2yEv69BeM",
-});
+import { useChannel, useConnectionStateListener } from "ably/react";
 
 export default function App() {
-  return (
-    <AblyProvider client={client}>
-      <ChannelProvider channelName="main">
-        <AblyPubSub />
-      </ChannelProvider>
-    </AblyProvider>
-  );
-}
-
-function AblyPubSub() {
   const [messages, setMessages] = useState([]);
   const [eventName, setEvent] = useState("main");
   const [text, setText] = useState("");
@@ -45,7 +24,7 @@ function AblyPubSub() {
           onChange={(e) => setEvent(e.target.value)}
         />
         <textarea
-          className="w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Message"
           value={text}
           onChange={(e) => setText(e.target.value)}
